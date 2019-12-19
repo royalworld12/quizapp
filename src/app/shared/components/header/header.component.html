@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+  <div class="container">
+      <a *ngIf="checkadmin && isLogin" class="navbar-brand" href="/admin-home">MyQuiz</a>
+      <a *ngIf="!checkadmin && isLogin" class="navbar-brand" href="/home">MyQuiz</a>
+      <a *ngIf="!isLogin" class="navbar-brand" href="/home">MyQuiz</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto" *ngIf="!isLogin">
+              <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/register">Register</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto" *ngIf="isLogin">
+            <li class="nav-item">
+                <a class="nav-link anchor" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+
+      </div>
+  </div>
+</nav>

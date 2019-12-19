@@ -1,0 +1,19 @@
+<div id="" class="container">
+  <div class="jumbotron text-center">
+   <h3 >hi , Welcome {{userData[0].name}} </h3> 
+   
+  </div>
+  <form *ngIf="isshow"  (ngSubmit)="submit()">
+    <h6 class="text-center">Please choose the category before getting quiz question</h6>
+    <br>
+    <div class="col-md-6 offset-md-3">
+      <select class="form-control" (change)="getValue($event.target.value)">
+        <option value="">Please Select</option>
+        <option *ngFor="let item of quizcategory" [value]="item.id">{{item.category_name}}</option>
+      </select>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+ 
+</form>
+</div>

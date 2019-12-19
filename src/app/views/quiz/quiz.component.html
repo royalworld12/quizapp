@@ -1,0 +1,44 @@
+<div id="" class="container">
+  <form *ngIf="isshow" [formGroup]="quizForm" (ngSubmit)="submit()">
+  <div id="error-block">
+    <div *ngIf="isSubmitted && formControls.quest1.errors" class="help-block alert alert-danger">
+      <span *ngIf="formControls.quest1.errors.required">question1 is required</span>
+    </div>
+    <div *ngIf="isSubmitted && formControls.quest2.errors" class="help-block  alert alert-danger">
+      <span *ngIf="formControls.quest2.errors.required">question2 is required</span>
+    </div>
+    <div *ngIf="isSubmitted && formControls.quest3.errors" class="help-block alert alert-danger">
+      <span *ngIf="formControls.quest3.errors.required">question3 is required</span>
+    </div>
+    <div *ngIf="isSubmitted && formControls.quest4.errors" class="help-block alert alert-danger">
+      <span *ngIf="formControls.quest4.errors.required">question4 is required</span>
+    </div>
+    <div *ngIf="isSubmitted && formControls.quest5.errors" class="help-block alert alert-danger">
+      <span *ngIf="formControls.quest5.errors.required">question5 is required</span>
+    </div>
+  </div>
+    <br>
+  <div class="card" *ngFor="let items of quizdata, let i = index">
+    <div class="card-body">
+    Q{{i+1}})      {{items.ques}}
+    </div>
+    <div class="container">
+    <div>
+      <label><input type="radio" formControlName="quest{{i+1}}" name="quest{{i+1}}" [value]="items['option 1']"> {{items['option 1']}}</label>
+    </div>
+    <div>
+      <label><input type="radio" formControlName="quest{{i+1}}" name="quest{{i+1}}" [value]="items['option 2']"> {{items['option 2']}}</label>
+    </div>
+    <div>
+      <label><input type="radio" formControlName="quest{{i+1}}" name="quest{{i+1}}" [value]="items['option 3']"> {{items['option 3']}}</label>
+    </div>
+    <div>
+      <label><input type="radio" formControlName="quest{{i+1}}" name="quest{{i+1}}" [value]="items['option 4']"> {{items['option 4']}}</label>
+    </div>
+  </div>
+  <input type="hidden" formControlName="ans{{i+1}}" name="ans{{i+1}}" [value]="items['ans']">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
